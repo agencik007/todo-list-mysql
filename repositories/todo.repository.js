@@ -3,6 +3,7 @@ const {pool} = require("../utils/db");
 
 
 class TodoRepository {
+
   constructor(obj) {
     this.id = obj.id;
     this.title = obj.title;

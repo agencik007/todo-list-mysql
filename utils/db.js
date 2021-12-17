@@ -5,8 +5,7 @@ const pool = mysql.createPool({
   user: 'root',
   database: 'megakurs_todo_list',
   decimalNumbers: true,
-  namedPlaceholders: true,
-  // multipleStatements: true,
+  namedPlaceholders: true
 });
 
 module.exports = {
