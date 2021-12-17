@@ -1,0 +1,49 @@
+{{#if todos}}
+    <table>
+        <thead>
+        <tr>
+            <th>
+                Nazwa zadania
+            </th>
+            <th>
+                Data dodania
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each todos}}
+            <tr>
+                <td>
+                    {{this.title}}
+                </td>
+                <td>
+                    {{this.createdAt}}
+                </td>
+                <td>
+                    <form method="POST" action="/delete/{{this.id}}">
+                        <button type="submit">Usuń</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+{{/if}}
+
+
+<div class="form">
+    <form method="POST" action="/add/">
+        <label>
+            <p>
+                Task name:
+            </p>
+            <p>
+                <input type="text" name="title" required>
+            </p>
+        </label>
+        <p>
+            <button type="submit">Save to database</button>
+        </p>
+    </form>
+</div>

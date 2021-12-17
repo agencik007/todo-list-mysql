@@ -1,0 +1,31 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+table {
+    text-align: left;
+    width: 50%;
+    margin: 0 auto;
+}
+
+tr {
+    margin: 2px;
+    background: #767e7d;
+}
+
+tr:nth-child(2n) {
+    background: #b8bdbd;
+}
+
+thead tr, .header-of-left th {
+    background: #818881;
+}
+
+td, th {
+    padding: 7px;
+}
