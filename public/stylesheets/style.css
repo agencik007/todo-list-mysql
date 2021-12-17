@@ -29,3 +29,11 @@ thead tr, .header-of-left th {
 td, th {
     padding: 7px;
 }
+
+.error {
+    background: #a84343;
+    border: 2px solid red;
+    padding: 20px;
+    margin: 10px auto;
+    width: 80%;
+}
