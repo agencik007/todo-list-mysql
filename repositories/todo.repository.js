@@ -1,6 +1,6 @@
 const {v4: uuid} = require("uuid");
 const {pool} = require("../utils/db");
-
+const { ValidationError, NotFoundError } = require('../utils/errors');
 
 class TodoRepository {
 
@@ -14,11 +14,11 @@ class TodoRepository {
 
   _validate() {
     if (this.title.trim().length < 5) {
-      throw new Error('Todo title should be at least 5 characters.');
+      throw new ValidationError('Todo title should be at least 5 characters.');
     }
 
     if (this.title.length > 150) {
-      throw new Error('Todo title should has less than 150 characters.');
+      throw new ValidationError('Todo title should has less than 150 characters.');
     }
   }
 
@@ -40,7 +40,7 @@ class TodoRepository {
   static async delete(record) {
 
     if (!record.id) {
-      throw new Error('Todo has no ID.');
+      throw new NotFoundError('Todo has no ID.');
     }
 
     await pool.execute('DELETE FROM `todos` WHERE `id` = :id', {
@@ -63,7 +63,7 @@ class TodoRepository {
   static async update(record) {
 
     if (!record.id) {
-      throw new Error('Todo has no ID.');
+      throw new NotFoundError('Todo has no ID.');
     }
 
     record._validate();
