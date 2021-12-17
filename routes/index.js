@@ -6,7 +6,7 @@ const router = express.Router();
 
 /* GET home page. */
 router
-  .get('/', function(req, res, next) {
+  .get('/', (req, res) => {
     (async () => {
       const allTodos = await TodoRepository.findAll();
       allTodos.forEach(todo => todo.createdAt = formatDistanceToNow(todo.createdAt, { addSuffix: true }));
